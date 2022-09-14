@@ -82,6 +82,7 @@ class TestBowlingGame(unittest.TestCase):
             self.rollMany(5, 21)
             assert self.game.score() == 150
 
-
+'''
 BowlingGame.roll.__doc__= "A function to add trow results to the 'rolls' list"
-BowlingGame.frameScore().__doc__= "A function to calculate frame score by adding next trow results"
+BowlingGame.frameScore.__doc__= "A function to calculate frame score by adding next trow results"
+'''

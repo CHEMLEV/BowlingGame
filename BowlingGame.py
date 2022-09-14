@@ -1,5 +1,8 @@
-# File 1 (Test.py)
-# This file has information about test cases which you need to test.
+'''Autor: Junaid Hasseb
+Editor: Alexey Chemlev
+Last edited on 14-09-2022
+'''
+
 import unittest
 
 class BowlingGame:
@@ -50,12 +53,10 @@ class TestBowlingGame(unittest.TestCase):
 
     def testGutterGame(self):
         self.rollMany(0, 20)
-        print(self.game.score())
         assert self.game.score() == 0
 
     def testAllOnes(self):
         self.rollMany(1, 20)
-        print(self.game.score())
         assert self.game.score() == 20
 
     def testOneSpare(self):
@@ -63,7 +64,6 @@ class TestBowlingGame(unittest.TestCase):
         self.game.rolls.append(3)
         self.game.rolls.append(5)
         self.rollMany(0, 17)
-        print(self.game.score())
         assert self.game.score() == 20
 
     def testOneStrike(self):
@@ -71,13 +71,11 @@ class TestBowlingGame(unittest.TestCase):
         self.game.rolls.append(4)
         self.game.rolls.append(3)
         self.rollMany(0, 17)
-        print(self.game.score())
         assert self.game.score() == 24
 
     def testPerfectGame(self):
         self.rollMany(10, 12)
-        print(self.game.score())
-        assert self.game.score() == 300
+                assert self.game.score() == 300
 
     def testAllSpares(self):
         def testOneSpare(self):
@@ -85,12 +83,5 @@ class TestBowlingGame(unittest.TestCase):
             assert self.game.score() == 150
 
 
-# File 2 (BowlingGame.py)
-# This file has information about Bowling Game for which the description is provided in project assessment.
-
-# Your tasks for code parts:
-# 1: If there are any bugs in the code, you have to remove using debugging and run the project and test cases.
-# 2: Refactor the code (Improve its structure without changing external behaviour).
-# 3: Report everything using github commits and versioning control.
-
-###### Important #####
+BowlingGame.roll.__doc__= "A function to add trow results to the 'rolls' list"
+BowlingGame.frameScore().__doc__= "A function to calculate frame score by adding next trow results"

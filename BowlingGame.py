@@ -2,8 +2,6 @@
 # This file has information about test cases which you need to test.
 
 import unittest
-import BowlingGame
-
 
 class TestBowlingGame(unittest.TestCase):
 

@@ -1,8 +1,5 @@
-'''Autor: Junaid Hasseb
-Editor: Alexey Chemlev
-Last edited on 14-09-2022
-'''
-
+# File 1 (Test.py)
+# This file has information about test cases which you need to test.
 import unittest
 
 class BowlingGame:
@@ -75,14 +72,20 @@ class TestBowlingGame(unittest.TestCase):
 
     def testPerfectGame(self):
         self.rollMany(10, 12)
-                assert self.game.score() == 300
+        assert self.game.score() == 300
 
     def testAllSpares(self):
         def testOneSpare(self):
             self.rollMany(5, 21)
             assert self.game.score() == 150
 
-'''
-BowlingGame.roll.__doc__= "A function to add trow results to the 'rolls' list"
-BowlingGame.frameScore.__doc__= "A function to calculate frame score by adding next trow results"
-'''
+
+# File 2 (BowlingGame.py)
+# This file has information about Bowling Game for which the description is provided in project assessment.
+
+# Your tasks for code parts:
+# 1: If there are any bugs in the code, you have to remove using debugging and run the project and test cases.
+# 2: Refactor the code (Improve its structure without changing external behaviour).
+# 3: Report everything using github commits and versioning control.
+
+###### Important #####

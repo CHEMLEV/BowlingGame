@@ -22,7 +22,7 @@ class BowlingGame:
         return 10 + self.rolls[rollIndex + 1] + self.rolls[rollIndex + 2]
 
     def spareScore(self, rollIndex):
-        return 10 + self.rolls[rollIndex + 1]
+        return 10 + self.rolls[rollIndex + 2]
 
     def score(self):
         result = 0
@@ -36,15 +36,20 @@ class BowlingGame:
                 rollIndex += 2
             else:
                 result += self.frameScore(rollIndex)
-            rollIndex += 2
-            return result
+                rollIndex += 2
+        return result
+
 class TestBowlingGame(unittest.TestCase):
 
     def setUp(self):
         self.game = BowlingGame()
 
+    def rollMany(self, pins, rolls):
+        for i in range(rolls):
+            self.game.rolls.append(pins)
+
     def testGutterGame(self):
-        self.rollMany(0,20)
+        self.rollMany(0, 20)
         print(self.game.score())
         assert self.game.score() == 0
 
@@ -54,18 +59,18 @@ class TestBowlingGame(unittest.TestCase):
         assert self.game.score() == 20
 
     def testOneSpare(self):
-        self.game.rolls.append(5)
-        self.game.rolls.append(5)
+        self.game.rolls.append(7)
         self.game.rolls.append(3)
+        self.game.rolls.append(5)
         self.rollMany(0, 17)
         print(self.game.score())
-        assert self.game.score() == 16
+        assert self.game.score() == 20
 
     def testOneStrike(self):
         self.game.rolls.append(10)
         self.game.rolls.append(4)
         self.game.rolls.append(3)
-        self.rollMany(0, 16)
+        self.rollMany(0, 17)
         print(self.game.score())
         assert self.game.score() == 24
 
@@ -74,26 +79,18 @@ class TestBowlingGame(unittest.TestCase):
         print(self.game.score())
         assert self.game.score() == 300
 
-    def testOneSpare(self):
-        self.rollMany(5, 21)
-        print(self.game.score())
-        assert self.game.score() == 150
-
-    def rollMany(self, pins, rolls):
-        for i in range(rolls):
-            self.game.rolls.append(pins)
+    def testAllSpares(self):
+        def testOneSpare(self):
+            self.rollMany(5, 21)
+            assert self.game.score() == 150
 
 
 # File 2 (BowlingGame.py)
 # This file has information about Bowling Game for which the description is provided in project assessment.
-
-
 
 # Your tasks for code parts:
 # 1: If there are any bugs in the code, you have to remove using debugging and run the project and test cases.
 # 2: Refactor the code (Improve its structure without changing external behaviour).
 # 3: Report everything using github commits and versioning control.
 
-
 ###### Important #####
-# Please complete your project and all tasks according to assessment description provided in CANVAS.
